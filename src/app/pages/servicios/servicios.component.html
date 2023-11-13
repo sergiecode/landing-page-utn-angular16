@@ -1,0 +1,23 @@
+<div class="container">
+  <h4 *ngIf="loading">Cargando...</h4>
+  <table class="table" *ngIf="!loading">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Servicio</th>
+        <th scope="col">Horarios</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Detalle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let servicio of listaServicios">
+        <th scope="row">{{servicio?.id}}</th>
+        <td>{{servicio?.descripcion}}</td>
+        <td>{{servicio?.horarios_atencion}}horarios_atencion</td>
+        <td>{{servicio?.usuario?.nombre}} {{servicio?.usuario?.apellido}}</td>
+        <td><button type="button" class="btn btn-outline-primary" (click)="navegar(servicio!.id)">Detalle</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

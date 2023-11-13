@@ -1,0 +1,29 @@
+<div class="container m-5">
+    <form [formGroup]="formularioContacto" (ngSubmit)="enviarFormulario($event)">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" 
+            class="form-control" 
+            id="email" 
+            placeholder="name@example.com" 
+            formControlName="email"
+            [ngClass]="{'is-invalid' : hasError('email', 'required') || hasError('email', 'email')}"
+            >
+            <span class="text-danger" *ngIf="hasError('email', 'required')">Email obligatorio</span>
+            <span class="text-danger" *ngIf="hasError('email', 'email')">Email inválido</span>
+          </div>
+          <div class="mb-3">
+            <label for="motivo" class="form-label">Motivo de contacto: </label>
+            <textarea 
+            class="form-control" 
+            id="motivo" 
+            rows="3" 
+            formControlName="motivo"
+            [ngClass]="{'is-invalid' : hasError('motivo', 'required') || hasError('motivo', 'minlength')}"
+            ></textarea>
+            <span class="text-danger" *ngIf="hasError('motivo', 'required')">Motivo obligatorio</span>
+            <span class="text-danger" *ngIf="hasError('motivo', 'minlength')">Requiere al menos 10 caracteres</span>
+          </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>

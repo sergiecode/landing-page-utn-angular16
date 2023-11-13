@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'landing-page';
+  menuOption:string = ''
+
+  selectOption(menuOption:string){
+    this.menuOption = menuOption
+  }
 }
